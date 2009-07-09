@@ -14,4 +14,4 @@ end
 # require_recipe "mbari-ruby"
 
 # uncomment to enable the postgres database server
-require_recipe 'databaseyml'
+require_recipe 'memcached'
