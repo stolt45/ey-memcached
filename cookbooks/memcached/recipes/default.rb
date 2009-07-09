@@ -6,6 +6,7 @@ require 'pp'
 
 node[:applications].each do |app_name,data|
   user = node[:users].first
+  @mems = node[:members]
   db_name = "#{app_name}_#{node[:environment][:framework_env]}"
 
 if node[:instance_roll] != "db_master"
@@ -16,7 +17,7 @@ if node[:instance_roll] != "db_master"
     mode 0744
     variables({
         :app_name => app_name,
-        :servers => node[:members]
+        :servers => @mems
     })
   end
 
