@@ -8,8 +8,7 @@ node[:applications].each do |app_name,data|
   user = node[:users].first
   db_name = "#{app_name}_#{node[:environment][:framework_env]}"
 
-case node[:instance_roll]
-when "app"
+if node[:instance_roll] != "db_master"
   template "/data/#{app_name}/shared/config/memcached.yml" do
     source "memcached.yml.erb"
     owner user[:username]
