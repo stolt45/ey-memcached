@@ -26,8 +26,8 @@ when "app"
     group 'root'
     mode 0644
     source "memcached.erb"
-    variables :memusage => node[:memcached_size] || 512,
-              :port     => node[:port] || 11211
+    variables :memusage => 512,
+              :port     => 11211
   end
 end
 end
