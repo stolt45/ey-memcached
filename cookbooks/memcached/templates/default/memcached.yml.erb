@@ -22,7 +22,4 @@ defaults:
   sessions: false
   fragments: true
   servers:
-<% for member in @servers %>
-  - <%= member %>:11211
-<% end %>
-
+  - <%= servers %>:11211
