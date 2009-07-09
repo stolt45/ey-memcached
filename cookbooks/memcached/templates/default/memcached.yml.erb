@@ -22,5 +22,7 @@ defaults:
   sessions: false
   fragments: true
   servers:
-  - <%= @node[:members] %>:11211
+<% for member in @members %>
+  - <%= member %>:11211
+<% end %>
 
