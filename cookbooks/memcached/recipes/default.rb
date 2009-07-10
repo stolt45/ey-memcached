@@ -17,7 +17,7 @@ if node[:instance_roll] != "db_master"
     mode 0744
     variables({
         :app_name => app_name,
-        :servers => @mems
+        :servers => node[:members]
     })
   end
 
