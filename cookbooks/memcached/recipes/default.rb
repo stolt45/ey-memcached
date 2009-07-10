@@ -6,12 +6,10 @@ require 'pp'
 
 node[:applications].each do |app_name,data|
   user = node[:users].first
-  mems = node[:members]
-  db_name = "#{app_name}_#{node[:environment][:framework_env]}"
 
 case node[:instance_roll]
 
-when "app"
+when /^app/
   template "/data/#{app_name}/shared/config/memcached.yml" do
     source "memcached.yml.erb"
     owner user[:username]
@@ -19,7 +17,7 @@ when "app"
     mode 0744
     variables({
         :app_name => app_name,
-        :server_name => mems
+        :server_name => node[:members]
     })
   end
 
