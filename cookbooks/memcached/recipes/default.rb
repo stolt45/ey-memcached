@@ -11,7 +11,7 @@ node[:applications].each do |app_name,data|
 
 case node[:instance_roll]
 
-while "app"
+when "app"
 if node[:instance_roll].to_s != "db_master"
   template "/data/#{app_name}/shared/config/memcached.yml" do
     source "memcached.yml.erb"
