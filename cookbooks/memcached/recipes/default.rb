@@ -15,7 +15,7 @@ node[:applications].each do |app_name,data|
     mode 0744
     variables({
         :app_name => app_name,
-        :server_name => node[:members]
+        :server_names => node[:members]
     })
   end
 
