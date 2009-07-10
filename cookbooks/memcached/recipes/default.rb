@@ -7,8 +7,8 @@ require 'pp'
 node[:applications].each do |app_name,data|
   user = node[:users].first
 
-case node[:instance_roll]
-when "app", "app_master"
+case node[:instance_role]
+ when "app", "app_master"
    template "/data/#{app_name}/current/config/memcached.yml" do
      source "memcached.yml.erb"
      owner user[:username]
