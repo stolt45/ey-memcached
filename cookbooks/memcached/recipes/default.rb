@@ -7,9 +7,7 @@ require 'pp'
 node[:applications].each do |app_name,data|
   user = node[:users].first
 
-case node[:instance_roll]
 
-when /^app/
   template "/data/#{app_name}/shared/config/memcached.yml.new" do
     source "memcached.yml.erb"
     owner user[:username]
@@ -29,5 +27,4 @@ when /^app/
     variables :memusage => 512,
               :port     => 11211
   end
-end
 end
