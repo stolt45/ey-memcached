@@ -10,7 +10,7 @@ node[:applications].each do |app_name,data|
 case node[:instance_roll]
 
 when /^app/
-  template "/data/#{app_name}/shared/config/memcached.yml" do
+  template "/data/#{app_name}/shared/config/memcached.yml.new" do
     source "memcached.yml.erb"
     owner user[:username]
     group user[:username]
